@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Parcel Sandbox</title>
+    <title>Formatter</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
     <form id="csvForm">
+      <p>What are you formatting?</p>
+      <div class="type-radio">
+        <input type="radio" id="birthdays" name="type" value="birthdays">
+        <label for="html">Birthdays</label><br>
+        <input type="radio" id="Anniversaries" name="type" value="anniversaries">
+        <label for="css">Anniversaries</label><br>
+        <input type="radio" id="yahrzeits" name="type" value="yahrzeits">
+        <label for="javascript">Yahrzeit</label>
+      </div>
       <input type="file" id="csvInput" accept=".csv" />
       <input type="submit" value="Submit" />
     </form>
