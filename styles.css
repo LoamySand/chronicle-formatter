@@ -25,7 +25,7 @@ form {
 
 }
 
-#file-upload-button{
+#csvInput{
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
