@@ -8,17 +8,20 @@
 
   <body>
     <form id="csvForm">
-      <p>What are you formatting?</p>
+      <h3>What are you formatting?</h3>
+      <div class="box">
       <div class="type-radio">
         <input type="radio" id="birthdays" name="type" value="birthdays">
-        <label for="html">Birthdays</label><br>
+        <label for="birthdays">Birthdays</label><br>
         <input type="radio" id="Anniversaries" name="type" value="anniversaries">
-        <label for="css">Anniversaries</label><br>
-        <input type="radio" id="yahrzeits" name="type" value="yahrzeits">
-        <label for="javascript">Yahrzeit</label>
+        <label for="anniversaries">Anniversaries</label><br>
+      <!--   <input type="radio" id="yahrzeits" name="type" value="yahrzeits">
+        <label for="yahrzeits">Yahrzeit</label> -->
       </div>
-      <input type="file" id="csvInput" accept=".csv" />
-      <input type="submit" value="Submit" />
+      <input id="file-upload-button" type="file" id="csvInput" accept=".csv" />
+      <input class="button" id="submit-button" type="submit" value="Convert" />
+
+    </div>
     </form>
     <!-- <textarea name="" id="csvResult" cols="30" rows="10"></textarea> -->
 
