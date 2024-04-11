@@ -158,17 +158,17 @@ function formatAnniversary(obj) {
 
 
 function formatDate(string){
-  console.log(string);
+  //console.log(string);
   // string from -8 to -6 char
   //string = string.substring(string.length-8, string.length-6);
   string = string.substring(string.length-2);
 
-  console.log(string);
+  //console.log(string);
 
   //trim leading zero
   if (string[0] === "0") {
     string = string.substring(1);
-  console.log(string);
+  //console.log(string);
 
   }
   return string;
