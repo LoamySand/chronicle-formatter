@@ -15,10 +15,10 @@ form.addEventListener("submit", function (e) {
 
   if (typeOfFile == "birthdays") {
     type = formatBirthday;
-    csvStart = 21;
+    csvStart = 17;
   } else if (typeOfFile == "anniversaries") {
     type = formatAnniversary;
-    csvStart = 27;
+    csvStart = 22;
   } else if (typeOfFile == "yahrzeit") {
     console.log("formatYarhzeit() has not been programmed");
   }
@@ -84,7 +84,7 @@ function csvToArray(stringVal, splitter){
 
   //renames anniversary key to something usable
   if (keys[3]==='Anniversary Count\r') {
-    keys[3] = "Count";
+    keys[4] = "Count";
   };
 
 
@@ -120,7 +120,7 @@ function arrToTxt(arr, type){
 
 // formats individual birthday objects
 function formatBirthday(obj){
-    var date = obj.Date.substring(0,1);
+    var date = formatDate(obj.Date);
     var superscript ="";
     if(date === "1"){
         superscript = "st";
@@ -131,13 +131,13 @@ function formatBirthday(obj){
     } else {
         superscript = "th";
     }
-    var tempString = date + superscript + "\t" + obj.Name;
+    var tempString = date + superscript + "\t" + obj.Name.substring(1, obj.Name.length-1);
     //console.log(tempString);
     return tempString;
 }
 // formats individual anniversary objects 
 function formatAnniversary(obj) {
-  var date = obj.Date.substring(0,1);
+  var date = formatDate(obj.Date);
   var superscript ="";
     if(date === "1"){
         superscript = "st";
@@ -149,13 +149,30 @@ function formatAnniversary(obj) {
         superscript = "th";
     }
 
-  var anniversaryCount = obj.Count.substring(0, obj.Count.length-3);
+  var anniversaryCount = obj.Count.substring(1, obj.Count.length-4);
 
-    var tempString = date + superscript + "\t" + obj.Name + "\t\t\t" + anniversaryCount + " years";
+    var tempString = date + superscript + "\t" + obj.Name.substring(1, obj.Name.length-1) + "\t\t\t" + anniversaryCount + " years";
     return tempString;
 }
 // formats individual yahrzeit objects 
 
+
+function formatDate(string){
+  console.log(string);
+  // string from -8 to -6 char
+  //string = string.substring(string.length-8, string.length-6);
+  string = string.substring(string.length-2);
+
+  console.log(string);
+
+  //trim leading zero
+  if (string[0] === "0") {
+    string = string.substring(1);
+  console.log(string);
+
+  }
+  return string;
+}
   // Start file download.
 function download(filename, text) {
     var element = document.createElement('a');
