@@ -122,7 +122,15 @@ function arrToTxt(arr, type){
 function formatBirthday(obj){
     var date = formatDate(obj.Date);
     var superscript ="";
-    if(date === "1"){
+    if(date === "21"){
+        superscript = "st"
+    } else if (date === "22"){
+        superscript = "nd"
+    } else if (date === "23"){
+        superscript = "rd"
+    } else if (date === "31"){
+        superscript = "st"
+    } else if (date === "1"){
         superscript = "st";
     } else if (date ==="2") {
         superscript = "nd";
@@ -139,7 +147,15 @@ function formatBirthday(obj){
 function formatAnniversary(obj) {
   var date = formatDate(obj.Date);
   var superscript ="";
-    if(date === "1"){
+    if(date === "21"){
+        superscript = "st"
+    } else if (date === "22"){
+        superscript = "nd"
+    } else if (date === "23"){
+        superscript = "rd"
+    } else if (date === "31"){
+        superscript = "st"
+    } else if (date === "1"){
         superscript = "st";
     } else if (date ==="2") {
         superscript = "nd";
@@ -150,8 +166,12 @@ function formatAnniversary(obj) {
     }
 
   var anniversaryCount = obj.Count.substring(1, obj.Count.length-4);
+    if (anniversaryCount = 1){
+        var tempString = date + superscript + "\t" + obj.Name.substring(1, obj.Name.length-1) + "\t\t\t" + anniversaryCount + " year";
 
-    var tempString = date + superscript + "\t" + obj.Name.substring(1, obj.Name.length-1) + "\t\t\t" + anniversaryCount + " years";
+    } else {
+        var tempString = date + superscript + "\t" + obj.Name.substring(1, obj.Name.length-1) + "\t\t\t" + anniversaryCount + " years";
+    }
     return tempString;
 }
 // formats individual yahrzeit objects 
