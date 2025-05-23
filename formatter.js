@@ -108,10 +108,11 @@ function formatBirthday(obj) {
 
 function formatAnniversary(obj) {
   console.log("formatAnniversary called with:", obj);
+  var date = formatAnniversaryDate(obj.Date);
   const formattedName = formatName(obj.Name);
-  const date = obj.Date || "";
+  //const date = obj.Date || "";
   const count = obj["Anniversary Count"] || "";
-  const formatted = `${formattedName}\t${date}\t${count} anniversary`;
+  const formatted = `${formattedName}\t\t${date}\t\t${count} anniversary`;
   console.log("formatAnniversary output:", formatted);
   return formatted;
 }
@@ -178,6 +179,18 @@ function formatDate(string) {
   const fallback = string.slice(-2).startsWith("0") ? string.slice(-1) : string.slice(-2);
   console.log("formatDate fallback result:", fallback);
   return fallback;
+}
+
+function formatAnniversaryDate(dateString) {
+  // Parse the date string like "July 03, 2025"
+  const dateObj = new Date(dateString);
+
+  // Get month name
+  const month = dateObj.toLocaleString('default', { month: 'long' });
+  // Get day without leading zero
+  const day = dateObj.getDate();
+
+  return `${month} ${day}`;
 }
 
 function download(filename, text) {
